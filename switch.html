@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Case / Escolha Caso</title>
+    <style>
+      body{
+        font-family: sans-serif;
+        text-align: center;
+      }
+
+       img{
+         max-width: 200px;
+         max-height: 200px;
+         margin: 10px;
+       }
+
+    </style>
+</head>
+<body>
+    
+ <h1>Selecione um dia da semana:</h1>
+  <select name="" id="diaSemana" onchange="mostrarMensagem()">
+    <option value="default"> Selecione um dia </option>
+    <option value="segunda"> Segunda-Feira </option>
+    <option value="terca"> Terça-Feira</option>
+    <option value="quarta"> Quarta-Feira</option>
+    <option value="quinta"> Quinta-Feira </option>
+    <option value="sexta">Sexta-Feira </option>
+    <option value="sabado"> Sábado</option>
+    <option value="domingo"> Domingo</option>
+
+  </select>
+
+  <div id="mensagem"></div>
+
+  <script>
+    function mostrarMensagem(){
+        var select = document.getElementById('diaSemana');
+        var diaSelecionado = select.value;
+        var mensagemElemento = document.getElementById('mensagem');
+        var mensagem = "";
+        var imagemSrc = ""; 
+
+        switch (diaSelecionado) {
+          case "segunda":
+            mensagem = "Bom dia! Infelizmente é segunda.";
+            imagemSrc = "https://i.pinimg.com/564x/14/17/6c/14176c090c7b2cbdd56c323957779c6c.jpg";
+            break
+            case "terca":
+                mensagem = "Terça-Feira! Falta mais tres dias para sexta.";
+                imagemSrc = "https://i.pinimg.com/736x/2b/2a/54/2b2a54618c40f35a706b4072e16db4cf.jpg";
+                break
+                case "quarta":
+                  mensagem = "Dois dias para sexta, quase lá!";
+                  imagemSrc = "https://i.pinimg.com/474x/af/5c/f7/af5cf7d71b360ec4b91105aa93f89a9e.jpg";
+                  break
+                 case "quinta":
+                 mensagem = "Sexta esta quase lá!";
+                 imagemSrc = "https://i.pinimg.com/736x/cb/3e/01/cb3e014d6122af3b43933bb571859ae7.jpg";
+                 break
+                case "sexta":
+                 mensagem = "SEXTOOOUUU!";
+                 imagemSrc = "https://i.pinimg.com/736x/d2/66/bf/d266bff1246cb068c051ca32582729e3.jpg";
+                 break
+                 case "sabado":
+                  mensagem = "Dia de relaxar em casa.";
+                  imagemSrc = "https://i.kym-cdn.com/photos/images/newsfeed/002/355/517/9c8.png";
+                 break
+                case "domingo":
+                 mensagem = "Infelizmenta amanhã o ciclo repete.";
+                 imagemSrc = "https://i0.wp.com/pbs.twimg.com/media/Ey6LODyVcAMXkXL.jpg";
+                 break
+                 default:
+                  mensagem = "Por favor, selecione um dia da semana";
+                
+
+        }
+        mensagemElemento.innerHTML = "<p>" + mensagem +"</p>";
+        if (imagemSrc !== "") {
+          mensagemElemento.innerHTML += "<img src = '" + imagemSrc + "'>";
+       } 
+    }
+  </script>
+
+
+
+</body>
+</html>
